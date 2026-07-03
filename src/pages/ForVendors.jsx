@@ -31,12 +31,17 @@ export default function ForVendors() {
           <p className="mx-auto mb-6 max-w-xl font-dmsans text-lg text-muted">
             We're building something amazing for vendors. OneDestiny will connect you with thousands of customers looking for premium event management services.
           </p>
-          <div className="mx-auto mb-10 inline-flex items-center gap-2 rounded-lg border border-gold/30 bg-surface-2/60 px-5 py-3 font-cinzel text-sm uppercase tracking-[0.1em] text-gold">
-            <CalendarCheck size={18} />
-            Launching 27 July 2026
+          <div className="mx-auto mb-6 inline-flex flex-col items-center gap-3 rounded-xl border border-gold/30 bg-surface-2/60 px-8 py-5">
+            <div className="flex items-center gap-2 font-cinzel text-xs uppercase tracking-[0.15em] text-muted">
+              <CalendarCheck size={16} />
+              Save the Date
+            </div>
+            <p className="font-cormorant text-2xl font-medium text-gold md:text-3xl">
+              Vendor Registration Opens on 27 July 2026
+            </p>
           </div>
           <p className="mx-auto mb-10 max-w-md font-dmsans text-sm leading-relaxed text-muted">
-            Want to be among the first vendors on our platform? Reach out to us and we'll notify you as soon as registrations open.
+            Want to be among the first vendors on our platform? Reach out to us and we'll notify you when registration goes live.
           </p>
           <GoldButton variant="outlined" size="lg" to="/contact">
             Contact Us <ArrowRight size={14} />
