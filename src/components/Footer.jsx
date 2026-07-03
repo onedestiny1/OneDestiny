@@ -20,7 +20,6 @@ const categories = [
   'Pandits',
   'Mehendi Artists',
   'DJ & Music',
-  'Wedding Cars',
 ]
 
 function Instagram({ size = 16, className = '' }) {
@@ -154,9 +153,21 @@ export default function Footer() {
       </div>
 
       <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
+
+      {/* Founders Section */}
+      <div className="container py-8 text-center">
+        <p className="font-cinzel text-[11px] uppercase tracking-[0.2em] text-muted mb-3">Founded by</p>
+        <div className="flex items-center justify-center gap-3">
+          <span className="font-cormorant text-lg text-gold">Karnakanti Nithish</span>
+          <span className="text-gold/40">&amp;</span>
+          <span className="font-cormorant text-lg text-gold">Balla Dharmateja</span>
+        </div>
+      </div>
+
+      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
       <div className="container flex flex-col items-center justify-between gap-4 py-6 sm:flex-row">
         <p className="font-dmsans text-xs text-muted">
-          &copy; 2025 OneDestiny. All rights reserved. | Founded by <span className="text-gold">Karnakanti Nithish</span> &amp; <span className="text-gold">Balla Dharmateja</span>
+          &copy; 2025 OneDestiny. All rights reserved.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-6">
           <a href="#" className="font-dmsans text-xs text-muted transition-colors hover:text-gold-light">
