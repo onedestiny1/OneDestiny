@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Mail, MapPin, Phone } from 'lucide-react'
+import { Mail, Phone } from 'lucide-react'
 import AnimatedSection from '../components/AnimatedSection'
 import GoldButton from '../components/GoldButton'
 
@@ -35,15 +35,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'karnakantinithish6@gmail.com',
-    href: 'mailto:karnakantinithish6@gmail.com',
-    external: false,
-  },
-  {
-    icon: MapPin,
-    label: 'Address',
-    value: '1-3-102 Padmashali Street, Karimnagar, Telangana 505001',
-    href: null,
+    value: 'onedestiny50@gmail.com',
+    href: 'mailto:onedestiny50@gmail.com',
     external: false,
   },
   {
