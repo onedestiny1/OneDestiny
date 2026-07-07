@@ -324,13 +324,12 @@ export default function Home() {
             <h2 className="mb-6 font-cormorant text-3xl font-light sm:text-4xl md:text-5xl">
               Coming <em className="text-gold">Soon</em>
             </h2>
-            <p className="mx-auto mb-8 max-w-lg font-dmsans text-muted sm:mb-10">
+            <p className="mx-auto mb-10 max-w-lg font-dmsans text-muted">
               We're building something special. OneDestiny will be available on App Store & Google Play soon.
             </p>
-            <div className="mb-8 flex items-center justify-center gap-2 font-cinzel text-sm uppercase tracking-[0.1em] text-gold">
-              <CalendarCheck size={18} />
+            <p className="mb-10 font-cormorant text-2xl text-gold md:text-3xl">
               Vendor Registration Opens on 27 July 2026
-            </div>
+            </p>
             <GoldButton variant="outlined" size="lg" to="/contact">
               Get Notified <ArrowRight size={14} />
             </GoldButton>
