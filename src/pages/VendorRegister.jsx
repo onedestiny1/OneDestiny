@@ -755,17 +755,7 @@ export default function VendorRegister() {
                 </div>
               )}
 
-              <div className="mb-6 flex justify-end">
-                <button
-                  type="button"
-                  onClick={() => setFormData((prev) => ({ ...prev, ...DUMMY_DATA, categoryId: categories[0]?.id || prev.categoryId }))}
-                  className="flex items-center gap-1.5 rounded border border-gold/20 bg-surface-2/60 px-3 py-1.5 font-dmsans text-[11px] text-muted transition-colors hover:border-gold/50 hover:text-gold"
-                >
-                  🧪 Fill Dummy Data
-                </button>
-              </div>
-
-              <div className="mb-8">
+<div className="mb-8">
                 <div className="mb-2 flex items-center justify-between">
                   <span className="font-cinzel text-[11px] uppercase tracking-[0.15em] text-gold">
                     Step {stepIndex + 1} of {STEP_TITLES.length}
