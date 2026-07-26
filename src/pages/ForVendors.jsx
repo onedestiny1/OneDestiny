@@ -1,5 +1,4 @@
-import { ArrowRight, CalendarCheck } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { ArrowRight, Store } from 'lucide-react'
 import AnimatedSection from '../components/AnimatedSection'
 import GoldButton from '../components/GoldButton'
 
@@ -20,32 +19,43 @@ export default function ForVendors() {
       <div className="container relative z-10 py-32 text-center">
         <AnimatedSection>
           <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full border border-gold/30 bg-surface-2">
-            <CalendarCheck size={36} className="text-gold" />
+            <Store size={36} className="text-gold" />
           </div>
           <span className="mb-4 block font-cinzel text-[11px] uppercase tracking-[0.2em] text-gold">
             For Vendors
           </span>
           <h1 className="mb-6 font-cormorant text-[44px] font-light leading-[1.1] md:text-[56px] lg:text-[64px]">
-            Coming <em className="text-gold">Soon</em>
+            Grow Your Business
+            <br />
+            <em className="text-gold">with OneDestiny</em>
           </h1>
-          <p className="mx-auto mb-6 max-w-xl font-dmsans text-lg text-muted">
-            We're building something amazing for vendors. OneDestiny will connect you with thousands of customers looking for premium event management services.
+          <p className="mx-auto mb-8 max-w-xl font-dmsans text-lg text-muted">
+            Join India's premium event management platform. Register your business today and connect with thousands of customers.
           </p>
-          <div className="mx-auto mb-6 inline-flex flex-col items-center gap-3 rounded-xl border border-gold/30 bg-surface-2/60 px-8 py-5">
-            <div className="flex items-center gap-2 font-cinzel text-xs uppercase tracking-[0.15em] text-muted">
-              <CalendarCheck size={16} />
-              Save the Date
-            </div>
-            <p className="font-cormorant text-2xl font-medium text-gold md:text-3xl">
-              Vendor Registration Opens on 27 July 2026
-            </p>
+
+          <div className="mx-auto mb-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
+            {[
+              { num: '01', text: 'Fill your business details' },
+              { num: '02', text: 'Upload your portfolio' },
+              { num: '03', text: 'Get reviewed & go live' },
+            ].map((s) => (
+              <div key={s.num} className="rounded-lg border border-gold/20 bg-surface-2/60 px-5 py-4">
+                <p className="mb-1 font-cormorant text-2xl text-gold">{s.num}</p>
+                <p className="font-dmsans text-sm text-muted">{s.text}</p>
+              </div>
+            ))}
           </div>
-          <p className="mx-auto mb-10 max-w-md font-dmsans text-sm leading-relaxed text-muted">
-            Want to be among the first vendors on our platform? Reach out to us and we'll notify you when registration goes live.
-          </p>
-          <GoldButton variant="outlined" size="lg" to="/contact">
-            Contact Us <ArrowRight size={14} />
-          </GoldButton>
+
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <GoldButton variant="filled" size="lg" to="/vendor-registration">
+              Register as Vendor <ArrowRight size={14} />
+            </GoldButton>
+            <GoldButton variant="outlined" size="lg" to="/contact">
+              Have Questions?
+            </GoldButton>
+          </div>
+
+
         </AnimatedSection>
       </div>
     </section>

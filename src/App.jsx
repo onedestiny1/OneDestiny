@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import AppPreview from './pages/AppPreview'
 import HowItWorks from './pages/HowItWorks'
 import ForVendors from './pages/ForVendors'
+import VendorRegister from './pages/VendorRegister'
 import Contact from './pages/Contact'
 
 function ScrollToTop() {
@@ -42,6 +43,7 @@ function AppContent() {
           <Route path="/vendors" element={<Navigate to="/app-preview" replace />} />
           <Route path="/how-it-works" element={<PageWrapper><HowItWorks /></PageWrapper>} />
           <Route path="/for-vendors" element={<PageWrapper><ForVendors /></PageWrapper>} />
+          <Route path="/vendor-registration" element={<PageWrapper><VendorRegister /></PageWrapper>} />
           <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
         </Routes>
       </main>

@@ -10,10 +10,12 @@ export default function GoldButton({
   type = 'button',
   className = '',
   ariaLabel,
+  disabled = false,
 }) {
   const sizeClass = `gold-btn-${size}`
   const variantClass = `gold-btn-${variant}`
-  const classes = `gold-btn ${variantClass} ${sizeClass} rounded-lg ${className}`
+  const disabledClass = disabled ? 'opacity-50 pointer-events-none' : ''
+  const classes = `gold-btn ${variantClass} ${sizeClass} rounded-lg ${disabledClass} ${className}`
 
   if (to) {
     return (
@@ -40,7 +42,7 @@ export default function GoldButton({
   }
 
   return (
-    <button type={type} onClick={onClick} className={classes} aria-label={ariaLabel}>
+    <button type={type} onClick={onClick} disabled={disabled} className={classes} aria-label={ariaLabel}>
       {children}
     </button>
   )

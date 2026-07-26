@@ -81,13 +81,13 @@ export default function Footer() {
                 @1onedestiny
               </a>
 
-              {/* Coming Soon */}
-              <div className="flex items-center gap-2 border border-[#C9A84C]/30 
-                  rounded-lg px-4 py-3">
-                <span className="font-cinzel text-[11px] text-[#C9A84C] tracking-[0.1em] uppercase">
-                  Vendor Registration Opens 27 Jul 2026
-                </span>
-              </div>
+              {/* Register CTA */}
+              <Link
+                to="/vendor-registration"
+                className="inline-flex items-center gap-2 rounded-lg border border-gold/40 bg-gold/10 px-4 py-3 font-cinzel text-[11px] uppercase tracking-[0.1em] text-gold transition-colors hover:bg-gold/20"
+              >
+                Register as Vendor →
+              </Link>
             </div>
           </div>
 

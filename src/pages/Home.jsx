@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import {
   ArrowRight,
   Building2,
-  CalendarCheck,
   Camera,
   Flower2,
   Lock,
@@ -16,6 +15,7 @@ import {
   Sun,
   UtensilsCrossed,
   Video,
+  CalendarCheck,
 } from 'lucide-react'
 import AnimatedSection from '../components/AnimatedSection'
 import GoldButton from '../components/GoldButton'
@@ -194,12 +194,7 @@ export default function Home() {
                 </GoldButton>
               </div>
 
-              <div className={`flex flex-wrap items-center gap-3 font-dmsans text-[14px] text-gold transition-all delay-[850ms] duration-700 sm:gap-4 ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'}`}>
-                <span className="inline-flex items-center gap-2 rounded-lg border border-gold/30 bg-surface-2/60 px-4 py-2">
-                  <CalendarCheck size={16} className="text-gold" />
-                  Vendor Registration Opens on 27 July 2026
-                </span>
-              </div>
+
             </div>
 
             <div className={`hidden justify-end lg:flex ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'} transition-all delay-500 duration-1000`}>
@@ -318,21 +313,20 @@ export default function Home() {
 
         <div className="container relative z-10 text-center">
           <AnimatedSection>
-            <span className="mb-4 block font-cinzel text-[11px] uppercase tracking-[0.2em] text-gold">
-              Coming Soon
-            </span>
             <h2 className="mb-6 font-cormorant text-3xl font-light sm:text-4xl md:text-5xl">
-              Coming <em className="text-gold">Soon</em>
+              Your Dream Event <em className="text-gold">Starts Here</em>
             </h2>
             <p className="mx-auto mb-10 max-w-lg font-dmsans text-muted">
-              We're building something special. OneDestiny will be available on App Store & Google Play soon.
+              Download OneDestiny today and discover the easiest way to plan your perfect event.
             </p>
-            <p className="mb-10 font-cormorant text-2xl text-gold md:text-3xl">
-              Vendor Registration Opens on 27 July 2026
-            </p>
-            <GoldButton variant="outlined" size="lg" to="/contact">
-              Get Notified <ArrowRight size={14} />
-            </GoldButton>
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <GoldButton variant="filled" size="lg" to="/for-vendors">
+                Register as Vendor <ArrowRight size={14} />
+              </GoldButton>
+              <GoldButton variant="outlined" size="lg" to="/contact">
+                Contact Us
+              </GoldButton>
+            </div>
           </AnimatedSection>
         </div>
       </section>
