@@ -155,12 +155,32 @@ export default function Footer() {
       <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 
       {/* Founders Section */}
-      <div className="container py-8 text-center">
-        <p className="font-cinzel text-[11px] uppercase tracking-[0.2em] text-muted mb-3">Founded by</p>
-        <div className="flex items-center justify-center gap-3">
-          <span className="font-cormorant text-lg text-gold">Karnakanti Nithish</span>
-          <span className="text-gold/40">&amp;</span>
-          <span className="font-cormorant text-lg text-gold">Balla Dharmateja</span>
+      <div className="container py-10">
+        <p className="mb-6 text-center font-cinzel text-[11px] uppercase tracking-[0.2em] text-muted">
+          The People Behind OneDestiny
+        </p>
+        <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-12">
+          {/* Founder */}
+          <div className="flex flex-col items-center gap-2 text-center">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full border border-gold/30 bg-surface-2">
+              <span className="font-cormorant text-xl text-gold">KN</span>
+            </div>
+            <p className="font-cormorant text-xl text-text-primary">Karnakanti Nithish</p>
+            <span className="font-cinzel text-[10px] uppercase tracking-[0.15em] text-gold">Founder</span>
+          </div>
+
+          {/* Divider */}
+          <div className="hidden h-16 w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent sm:block" />
+          <div className="block h-px w-16 bg-gradient-to-r from-transparent via-gold/30 to-transparent sm:hidden" />
+
+          {/* Co-Founder */}
+          <div className="flex flex-col items-center gap-2 text-center">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full border border-gold/30 bg-surface-2">
+              <span className="font-cormorant text-xl text-gold">BD</span>
+            </div>
+            <p className="font-cormorant text-xl text-text-primary">Balla Dharmateja</p>
+            <span className="font-cinzel text-[10px] uppercase tracking-[0.15em] text-gold">Co-Founder</span>
+          </div>
         </div>
       </div>
 
