@@ -38,9 +38,15 @@ export async function fetchCategories() {
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), 10000)
   try {
-    const res = await fetch(`${API_BASE}/api/categories`, { signal: controller.signal })
-    const body = await envelope(res)
-    const list = Array.isArray(body.data) ? body.data : []
+    const res = await fetch(`${API_BASE}/api/categories?includeInactive=false`, { signal: controller.signal })
+    let body = null
+    try {
+      body = await res.json()
+    } catch {
+      throw new ApiError('The server returned an unexpected response.', [], res.status)
+    }
+    // accept both { data: [...] } and a bare array
+    const list = Array.isArray(body) ? body : Array.isArray(body?.data) ? body.data : []
     return list.map((c) => ({
       id: Number(c.id ?? c.categoryId),
       name: c.name ?? c.categoryName ?? c.title ?? `Category ${c.id ?? c.categoryId}`,
