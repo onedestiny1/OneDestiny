@@ -177,6 +177,7 @@ function validateStep(step, formData) {
     }
   } else if (step === 5) {
     if (!formData.businessDescription.trim()) errors.businessDescription = 'Required'
+    else if (formData.businessDescription.trim().length < 30) errors.businessDescription = 'Must be at least 30 characters'
   } else if (step === 6) {
     if (!formData.infoAccurateConfirmed) errors.infoAccurateConfirmed = 'Required'
     if (!formData.displayPermissionGranted) errors.displayPermissionGranted = 'Required'
@@ -426,6 +427,7 @@ function StepProfile({ formData, handleChange, errors }) {
         placeholder="We are a team of passionate wedding photographers based in Pune with over 8 years of experience..."
         required
         error={errors.businessDescription}
+        hint={`Minimum 30 characters${formData.businessDescription.trim().length > 0 ? ` (${formData.businessDescription.trim().length} typed)` : ''}`}
         rows={5}
       />
       <TextField label="Languages Spoken" name="languagesSpoken" value={formData.languagesSpoken} onChange={handleChange} placeholder="English, Hindi, Marathi" hint="Comma-separated" />
