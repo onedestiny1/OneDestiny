@@ -21,6 +21,12 @@ async function envelope(res) {
     throw new ApiError('The server returned an unexpected response.', [], res.status)
   }
 
+  // ASP.NET validation error format: { title, errors: { field: [msg] } }
+  if (!res.ok && body?.title && body?.errors && !body?.success) {
+    const fieldErrors = Object.values(body.errors).flat()
+    throw new ApiError(body.title || 'Validation failed.', fieldErrors, res.status)
+  }
+
   if (!res.ok || !body?.success) {
     throw new ApiError(body?.message || 'Something went wrong.', body?.errors || [], res.status)
   }
