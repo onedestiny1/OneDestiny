@@ -397,12 +397,12 @@ export default function Home() {
             <hr className="gold-rule-wide mx-auto mt-6" />
           </AnimatedSection>
 
-          <div className="grid grid-cols-2 gap-3.5 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 lg:grid-cols-4 lg:gap-6">
+          <div className="explore-grid mx-auto grid max-w-6xl grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:gap-6">
             {categories.map((cat, i) => (
-              <AnimatedSection key={cat.slug} delay={i * 70}>
+              <AnimatedSection key={cat.slug} delay={i * 70} className="min-w-0">
                 <Link
                   to={`/services/${cat.slug}`}
-                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-surface-2 shadow-lg shadow-black/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_22px_50px_rgba(201,168,76,0.22)] cursor-pointer aspect-[4/5] sm:aspect-[3/4] min-h-[270px] sm:min-h-[300px]"
+                  className="group relative flex aspect-3/4 w-full flex-col justify-between overflow-hidden rounded-2xl bg-surface-2 shadow-lg shadow-black/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_22px_50px_rgba(201,168,76,0.22)] cursor-pointer md:aspect-4/5"
                 >
                   {/* Full-bleed Photography Container with Cinematic Effects */}
                   <div className="absolute inset-0 overflow-hidden">
@@ -429,8 +429,8 @@ export default function Home() {
                   </div>
 
                   {/* Top Bar: Floating Glass Icon Badge & Category Count Tag */}
-                  <div className="relative z-10 flex items-center justify-between p-3.5 sm:p-5">
-                    <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-surface/85 text-gold shadow-xl shadow-black/60 backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:bg-gold group-hover:text-bg">
+                  <div className="relative z-10 flex items-center justify-between gap-2 p-3 sm:p-5">
+                    <div className="flex h-9 w-9 shrink-0 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-surface/85 text-gold shadow-xl shadow-black/60 backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:bg-gold group-hover:text-bg">
                       {cat.icon && (
                         <>
                           <cat.icon size={20} className="sm:hidden" strokeWidth={1.5} />
@@ -440,19 +440,19 @@ export default function Home() {
                     </div>
 
                     {cat.count && (
-                      <span className="rounded-full bg-surface/80 px-2.5 py-0.5 sm:py-1 font-cinzel text-[8px] sm:text-[9px] uppercase tracking-wider text-gold-light backdrop-blur-md shadow-md shadow-black/40">
+                      <span className="truncate rounded-full bg-surface/80 px-2 sm:px-2.5 py-0.5 sm:py-1 font-cinzel text-[8px] sm:text-[9px] uppercase tracking-wider text-gold-light backdrop-blur-md shadow-md shadow-black/40">
                         {cat.count}
                       </span>
                     )}
                   </div>
 
                   {/* Bottom Content Area */}
-                  <div className="relative z-10 mt-auto p-3.5 sm:p-5 pt-0">
-                    <span className="font-cinzel text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-gold/80 transition-colors duration-300 group-hover:text-gold">
+                  <div className="relative z-10 mt-auto min-w-0 p-3 pt-0 sm:p-5 sm:pt-0">
+                    <span className="hidden font-cinzel text-[9px] sm:block sm:text-[10px] uppercase tracking-[0.2em] text-gold/80 transition-colors duration-300 group-hover:text-gold">
                       Vendor Collection
                     </span>
 
-                    <h3 className="mt-0.5 font-cormorant text-xl sm:text-2xl lg:text-[26px] font-normal text-text-primary transition-colors duration-300 group-hover:text-gold-light line-clamp-1">
+                    <h3 className="mt-0.5 font-cormorant text-lg leading-tight sm:text-2xl lg:text-[26px] font-normal text-text-primary transition-colors duration-300 group-hover:text-gold-light line-clamp-2 sm:line-clamp-1">
                       {cat.name}
                     </h3>
 
@@ -463,12 +463,14 @@ export default function Home() {
                     )}
 
                     {/* Expanding Gold Accent Line */}
-                    <div className="my-2.5 sm:my-3 h-[1px] w-6 bg-gold/40 transition-all duration-500 group-hover:w-full group-hover:bg-gold/80" />
+                    <div className="my-2 sm:my-3 h-px w-6 bg-gold/40 transition-all duration-500 group-hover:w-full group-hover:bg-gold/80" />
 
                     {/* Explore Link Indicator */}
-                    <div className="flex items-center justify-between font-cinzel text-[9px] sm:text-[10px] uppercase tracking-[0.16em] text-gold transition-colors">
-                      <span>Explore Vendors</span>
-                      <ArrowRight size={13} className="transition-transform duration-300 group-hover:translate-x-1.5" />
+                    <div className="flex items-center justify-between gap-2 font-cinzel text-[9px] sm:text-[10px] uppercase tracking-[0.12em] sm:tracking-[0.16em] text-gold transition-colors">
+                      <span className="truncate">
+                        Explore<span className="hidden min-[400px]:inline"> Vendors</span>
+                      </span>
+                      <ArrowRight size={13} className="shrink-0 transition-transform duration-300 group-hover:translate-x-1.5" />
                     </div>
                   </div>
                 </Link>

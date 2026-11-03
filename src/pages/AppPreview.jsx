@@ -483,9 +483,6 @@ export default function AppPreview() {
                 Starting from Karimnagar and Telangana, built to support wedding services across India.
               </p>
             </div>
-            <GoldButton variant="filled" size="lg" href="/#app-download">
-              Download App
-            </GoldButton>
           </AnimatedSection>
 
           <div className="relative">
@@ -533,7 +530,6 @@ export default function AppPreview() {
               {[
                 { t: 'Verified vendors', Icon: BadgeCheck },
                 { t: 'Secure payments', Icon: ShieldCheck },
-                { t: 'Free for couples', Icon: Heart },
               ].map(({ t, Icon }) => (
                 <li
                   key={t}
