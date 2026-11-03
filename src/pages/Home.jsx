@@ -316,7 +316,7 @@ export default function Home() {
   <div className="absolute inset-x-0 bottom-6 z-20 sm:bottom-8">
     <div className="container">
       {/* Segmented progress — the active segment fills over the autoplay interval, then advances */}
-      <div className="mb-4 flex gap-1.5">
+      <div className="mb-4 flex items-center justify-center gap-2">
         {heroSlides.map((s, i) => (
           <button
             key={s.label}
@@ -324,7 +324,9 @@ export default function Home() {
             aria-label={`Show ${s.label}`}
             aria-current={i === slide}
             onClick={() => goTo(i)}
-            className="group relative h-4 flex-1 cursor-pointer"
+            className={`group relative h-4 shrink-0 cursor-pointer transition-[width] duration-500 ease-out ${
+              i === slide ? 'w-10 sm:w-12' : 'w-4 sm:w-5'
+            }`}
           >
             <span className="absolute inset-x-0 top-1/2 h-[2px] -translate-y-1/2 overflow-hidden rounded-full bg-white/20 transition-colors group-hover:bg-white/40">
               <span

@@ -337,9 +337,6 @@ export default function AppPreview() {
               reviews, and payments happen inside the mobile app.
             </p>
             <div className="mb-10 flex flex-wrap gap-4">
-              <GoldButton variant="filled" size="lg" href="/#app-download">
-                Download App <ArrowRight size={14} />
-              </GoldButton>
               <GoldButton variant="outlined" size="lg" to="/how-it-works">
                 How It Works
               </GoldButton>

@@ -152,9 +152,6 @@ export default function Footer() {
           <a href="#" className="font-dmsans text-xs text-muted transition-colors hover:text-gold-light">
             Terms
           </a>
-          <a href="#" className="font-dmsans text-xs text-muted transition-colors hover:text-gold-light">
-            Refund Policy
-          </a>
         </div>
       </div>
     </footer>

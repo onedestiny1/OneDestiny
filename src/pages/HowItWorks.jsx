@@ -579,10 +579,10 @@ export default function HowItWorks() {
             <hr className="gold-rule-wide mx-auto mt-6" />
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid auto-rows-fr grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {features.map((f, i) => (
-              <AnimatedSection key={f.title} delay={i * 100}>
-                <div className="group rounded-lg border border-border-custom bg-surface-2 p-6 transition-colors hover:border-gold/30">
+              <AnimatedSection key={f.title} delay={i * 100} className="h-full min-w-0">
+                <div className="group flex h-full flex-col rounded-lg border border-border-custom bg-surface-2 p-6 transition-colors hover:border-gold/30">
                   <f.icon className="mb-4 text-gold transition-transform group-hover:scale-110" size={28} />
                   <h3 className="mb-2 font-cormorant text-xl">{f.title}</h3>
                   <p className="font-dmsans text-sm leading-relaxed text-muted">{f.desc}</p>
