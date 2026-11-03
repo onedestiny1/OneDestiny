@@ -703,6 +703,31 @@ body,
   .hero-caption { animation: none; }
 }
 
+/* Join as Vendor dropdown */
+.vendor-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px) scale(0.97);
+  transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.25s;
+}
+.vendor-menu-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s;
+}
+@keyframes vendorMenuEnter {
+  from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.vendor-menu-enter {
+  animation: vendorMenuEnter 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .vendor-menu, .vendor-menu-open { transform: none; transition: none; }
+  .vendor-menu-enter { animation: none; }
+}
+
 /* Explore Vendors grid: in the 2-column layout, center a lone last card */
 @media (max-width: 767.98px) {
   .explore-grid > :last-child:nth-child(odd) {
