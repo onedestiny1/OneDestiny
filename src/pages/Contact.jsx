@@ -1,7 +1,10 @@
 import { useState } from 'react'
+import { submitContactForm } from '../lib/contactApi'
+import { loadContacts, removeContact, saveContact } from '../lib/savedContacts'
 import { Mail, Phone } from 'lucide-react'
 import AnimatedSection from '../components/AnimatedSection'
 import GoldButton from '../components/GoldButton'
+import SavedInfoInput from '../components/SavedInfoInput'
 
 function InstagramIcon({ size = 16, className = '' }) {
   return (
@@ -60,6 +63,9 @@ export default function Contact() {
   })
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [submitError, setSubmitError] = useState('')
+  const [savedContacts, setSavedContacts] = useState(loadContacts)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -67,13 +73,27 @@ export default function Contact() {
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: '' }))
   }
 
-  const handleSubmit = (e) => {
+  const handlePickSaved = ({ fullName, email, phone }) => {
+    setFormData((prev) => ({ ...prev, fullName, email, phone }))
+    setErrors((prev) => ({ ...prev, fullName: '', email: '', phone: '' }))
+  }
+
+  const handleRemoveSaved = ({ email }) => setSavedContacts(removeContact(email))
+
+  const savedInfoProps = {
+    contacts: savedContacts,
+    onChange: handleChange,
+    onPick: handlePickSaved,
+    onRemove: handleRemoveSaved,
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const newErrors = {}
 
     if (!formData.fullName.trim()) newErrors.fullName = 'Required'
-    if (!formData.email.trim()) newErrors.email = 'Required'
-    if (!formData.phone.trim()) newErrors.phone = 'Required'
+    if (!/^\S+@\S+\.\S+$/.test(formData.email.trim())) newErrors.email = 'Required'
+    if (formData.phone.replace(/\D/g, '').length < 10) newErrors.phone = 'Required'
     if (!formData.message.trim()) newErrors.message = 'Required'
 
     if (Object.keys(newErrors).length > 0) {
@@ -81,11 +101,18 @@ export default function Contact() {
       return
     }
 
-    const text = `*New Enquiry from OneDestiny Website*\n\n*Name:* ${formData.fullName}\n*Email:* ${formData.email}\n*Phone:* ${formData.phone}\n*Type:* ${formData.messageType}\n*Message:* ${formData.message}`
-    window.open(`https://wa.me/916302594826?text=${encodeURIComponent(text)}`, '_blank')
-
-    setSubmitted(true)
-    setFormData({ fullName: '', email: '', phone: '', messageType: 'Customer', message: '' })
+    setSending(true)
+    setSubmitError('')
+    try {
+      await submitContactForm(formData)
+      setSavedContacts(saveContact(formData))
+      setSubmitted(true)
+      setFormData({ fullName: '', email: '', phone: '', messageType: 'Customer', message: '' })
+    } catch (err) {
+      setSubmitError(err.message)
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -211,15 +238,15 @@ export default function Contact() {
                 </AnimatedSection>
               ) : (
                 <AnimatedSection delay={300}>
-                  <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                  <form onSubmit={handleSubmit} className="space-y-5" noValidate autoComplete="off">
                     <div>
                       <label className="form-label" htmlFor="fullName">Full Name</label>
-                      <input
+                      <SavedInfoInput
+                        {...savedInfoProps}
                         id="fullName"
                         type="text"
                         name="fullName"
                         value={formData.fullName}
-                        onChange={handleChange}
                         placeholder="Your full name"
                         className={`form-input ${errors.fullName ? 'error' : ''}`}
                       />
@@ -228,24 +255,24 @@ export default function Contact() {
                     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                       <div>
                         <label className="form-label" htmlFor="email">Email</label>
-                        <input
+                        <SavedInfoInput
+                          {...savedInfoProps}
                           id="email"
                           type="email"
                           name="email"
                           value={formData.email}
-                          onChange={handleChange}
                           placeholder="you@example.com"
                           className={`form-input ${errors.email ? 'error' : ''}`}
                         />
                       </div>
                       <div>
                         <label className="form-label" htmlFor="phone">Phone Number</label>
-                        <input
+                        <SavedInfoInput
+                          {...savedInfoProps}
                           id="phone"
                           type="tel"
                           name="phone"
                           value={formData.phone}
-                          onChange={handleChange}
                           placeholder="+91 XXXXX XXXXX"
                           className={`form-input ${errors.phone ? 'error' : ''}`}
                         />
@@ -295,8 +322,14 @@ export default function Contact() {
                       />
                     </div>
 
-                    <GoldButton variant="filled" size="lg" type="submit" className="w-full">
-                      Send Message
+                    {submitError && (
+                      <p role="alert" className="rounded-lg border border-maroon-light/50 bg-maroon/15 px-4 py-3 font-dmsans text-sm text-text-primary">
+                        {submitError}
+                      </p>
+                    )}
+
+                    <GoldButton variant="filled" size="lg" type="submit" className="w-full" disabled={sending}>
+                      {sending ? 'Sending…' : 'Send Message'}
                     </GoldButton>
                   </form>
                 </AnimatedSection>

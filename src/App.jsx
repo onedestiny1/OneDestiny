@@ -6,8 +6,9 @@ import Home from './pages/Home'
 import AppPreview from './pages/AppPreview'
 import HowItWorks from './pages/HowItWorks'
 import ForVendors from './pages/ForVendors'
-import VendorRegister from './pages/VendorRegister'
 import Contact from './pages/Contact'
+import Services from './pages/Services'
+import ServiceDetail from './pages/ServiceDetail'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -41,9 +42,11 @@ function AppContent() {
           <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
           <Route path="/app-preview" element={<PageWrapper><AppPreview /></PageWrapper>} />
           <Route path="/vendors" element={<Navigate to="/app-preview" replace />} />
+          <Route path="/services" element={<PageWrapper><Services /></PageWrapper>} />
+          <Route path="/services/:slug" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
           <Route path="/how-it-works" element={<PageWrapper><HowItWorks /></PageWrapper>} />
           <Route path="/for-vendors" element={<PageWrapper><ForVendors /></PageWrapper>} />
-          <Route path="/vendor-registration" element={<PageWrapper><VendorRegister /></PageWrapper>} />
+          <Route path="/vendor-registration" element={<Navigate to="/for-vendors" replace />} />
           <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
         </Routes>
       </main>

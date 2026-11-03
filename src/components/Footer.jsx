@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Mail, Phone } from 'lucide-react'
 import logoFull from '../assets/logo-full.png'
+import { services } from '../data/services'
 
 const quickLinks = [
   { to: '/', label: 'Home' },
@@ -10,17 +11,6 @@ const quickLinks = [
   { to: '/contact', label: 'Contact' },
 ]
 
-const categories = [
-  'Photography',
-  'Videography',
-  'Makeup Artists',
-  'Catering',
-  'Venues',
-  'Decoration',
-  'Pandits',
-  'Mehendi Artists',
-  'DJ & Music',
-]
 
 function Instagram({ size = 16, className = '' }) {
   return (
@@ -80,14 +70,6 @@ export default function Footer() {
                 <Instagram size={16} className="group-hover:scale-110 transition-transform" />
                 @1onedestiny
               </a>
-
-              {/* Register CTA */}
-              <Link
-                to="/vendor-registration"
-                className="inline-flex items-center gap-2 rounded-lg border border-gold/40 bg-gold/10 px-4 py-3 font-cinzel text-[11px] uppercase tracking-[0.1em] text-gold transition-colors hover:bg-gold/20"
-              >
-                Register as Vendor →
-              </Link>
             </div>
           </div>
 
@@ -111,10 +93,10 @@ export default function Footer() {
               Vendor Categories
             </h4>
             <ul className="space-y-3">
-              {categories.map((cat) => (
-                <li key={cat}>
-                  <Link to="/app-preview" className="font-dmsans text-sm text-muted transition-colors hover:text-gold-light">
-                    {cat}
+              {services.map(({ slug, name }) => (
+                <li key={slug}>
+                  <Link to={`/services/${slug}`} className="font-dmsans text-sm text-muted transition-colors hover:text-gold-light">
+                    {name}
                   </Link>
                 </li>
               ))}
@@ -154,35 +136,6 @@ export default function Footer() {
 
       <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 
-      {/* Founders Section */}
-      <div className="container py-10">
-        <p className="mb-6 text-center font-cinzel text-[11px] uppercase tracking-[0.2em] text-muted">
-          The People Behind OneDestiny
-        </p>
-        <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-12">
-          {/* Founder */}
-          <div className="flex flex-col items-center gap-2 text-center">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full border border-gold/30 bg-surface-2">
-              <span className="font-cormorant text-xl text-gold">KN</span>
-            </div>
-            <p className="font-cormorant text-xl text-text-primary">Karnakanti Nithish</p>
-            <span className="font-cinzel text-[10px] uppercase tracking-[0.15em] text-gold">Founder</span>
-          </div>
-
-          {/* Divider */}
-          <div className="hidden h-16 w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent sm:block" />
-          <div className="block h-px w-16 bg-gradient-to-r from-transparent via-gold/30 to-transparent sm:hidden" />
-
-          {/* Co-Founder */}
-          <div className="flex flex-col items-center gap-2 text-center">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full border border-gold/30 bg-surface-2">
-              <span className="font-cormorant text-xl text-gold">BD</span>
-            </div>
-            <p className="font-cormorant text-xl text-text-primary">Balla Dharmateja</p>
-            <span className="font-cinzel text-[10px] uppercase tracking-[0.15em] text-gold">Co-Founder</span>
-          </div>
-        </div>
-      </div>
 
       <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
       <div className="container flex flex-col items-center justify-between gap-4 py-6 sm:flex-row">

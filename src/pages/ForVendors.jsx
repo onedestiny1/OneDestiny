@@ -1,4 +1,4 @@
-import { ArrowRight, Store } from 'lucide-react'
+import { Store } from 'lucide-react'
 import AnimatedSection from '../components/AnimatedSection'
 import GoldButton from '../components/GoldButton'
 
@@ -32,7 +32,7 @@ export default function ForVendors() {
           <p className="mx-auto mb-8 max-w-xl font-dmsans text-lg text-muted">
             Join India's premium event management platform. Register your business today and connect with thousands of customers.
           </p>
-
+          
           <div className="mx-auto mb-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
             {[
               { num: '01', text: 'Fill your business details' },
@@ -47,15 +47,10 @@ export default function ForVendors() {
           </div>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <GoldButton variant="filled" size="lg" to="/vendor-registration">
-              Register as Vendor <ArrowRight size={14} />
-            </GoldButton>
             <GoldButton variant="outlined" size="lg" to="/contact">
               Have Questions?
             </GoldButton>
           </div>
-
-
         </AnimatedSection>
       </div>
     </section>
