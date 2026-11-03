@@ -397,12 +397,12 @@ export default function Home() {
             <hr className="gold-rule-wide mx-auto mt-6" />
           </AnimatedSection>
 
-          <div className="explore-grid mx-auto grid max-w-6xl grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:gap-6">
+          <div className="explore-grid mx-auto grid max-w-md grid-cols-2 gap-3 sm:max-w-xl sm:gap-5 md:max-w-3xl md:grid-cols-3 lg:flex lg:max-w-6xl lg:flex-wrap lg:justify-center lg:gap-4">
             {categories.map((cat, i) => (
-              <AnimatedSection key={cat.slug} delay={i * 70} className="min-w-0">
+              <AnimatedSection key={cat.slug} delay={i * 70} className="min-w-0 lg:w-[calc((100%-4rem)/5)]">
                 <Link
                   to={`/services/${cat.slug}`}
-                  className="group relative flex aspect-3/4 w-full flex-col justify-between overflow-hidden rounded-2xl bg-surface-2 shadow-lg shadow-black/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_22px_50px_rgba(201,168,76,0.22)] cursor-pointer md:aspect-4/5"
+                  className="group relative flex aspect-3/4 w-full flex-col justify-between overflow-hidden rounded-2xl bg-surface-2 shadow-lg shadow-black/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_22px_50px_rgba(201,168,76,0.22)] cursor-pointer"
                 >
                   {/* Full-bleed Photography Container with Cinematic Effects */}
                   <div className="absolute inset-0 overflow-hidden">
@@ -429,12 +429,12 @@ export default function Home() {
                   </div>
 
                   {/* Top Bar: Floating Glass Icon Badge & Category Count Tag */}
-                  <div className="relative z-10 flex items-center justify-between gap-2 p-3 sm:p-5">
-                    <div className="flex h-9 w-9 shrink-0 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-surface/85 text-gold shadow-xl shadow-black/60 backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:bg-gold group-hover:text-bg">
+                  <div className="relative z-10 flex items-center justify-between gap-2 p-3 sm:p-4">
+                    <div className="flex h-8 w-8 shrink-0 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-surface/85 text-gold shadow-xl shadow-black/60 backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:bg-gold group-hover:text-bg">
                       {cat.icon && (
                         <>
-                          <cat.icon size={20} className="sm:hidden" strokeWidth={1.5} />
-                          <cat.icon size={22} className="hidden sm:block" strokeWidth={1.5} />
+                          <cat.icon size={16} className="sm:hidden" strokeWidth={1.5} />
+                          <cat.icon size={18} className="hidden sm:block" strokeWidth={1.5} />
                         </>
                       )}
                     </div>
@@ -447,12 +447,12 @@ export default function Home() {
                   </div>
 
                   {/* Bottom Content Area */}
-                  <div className="relative z-10 mt-auto min-w-0 p-3 pt-0 sm:p-5 sm:pt-0">
+                  <div className="relative z-10 mt-auto min-w-0 p-3 pt-0 sm:p-4 sm:pt-0">
                     <span className="hidden font-cinzel text-[9px] sm:block sm:text-[10px] uppercase tracking-[0.2em] text-gold/80 transition-colors duration-300 group-hover:text-gold">
                       Vendor Collection
                     </span>
 
-                    <h3 className="mt-0.5 font-cormorant text-lg leading-tight sm:text-2xl lg:text-[26px] font-normal text-text-primary transition-colors duration-300 group-hover:text-gold-light line-clamp-2 sm:line-clamp-1">
+                    <h3 className="mt-0.5 font-cormorant text-base leading-tight sm:text-xl lg:text-lg font-normal text-text-primary transition-colors duration-300 group-hover:text-gold-light line-clamp-2 sm:line-clamp-1">
                       {cat.name}
                     </h3>
 

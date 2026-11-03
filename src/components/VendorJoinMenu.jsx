@@ -134,7 +134,7 @@ export default function VendorJoinMenu({ variant = 'desktop', onNavigate }) {
         >
           <InstallAppIcon size={isMobile ? 13 : 11} />
         </span>
-        Join as Vendor
+        <span className={`font-cinzel uppercase ${isMobile ? 'text-sm' : 'text-[13px]'}`}>Join as Vendor</span>
         <ChevronDown
           size={isMobile ? 13 : 12}
           className={`transition-transform duration-300 ${open ? 'rotate-180' : ''}`}

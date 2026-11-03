@@ -98,12 +98,12 @@ export default function Services() {
             <hr className="gold-rule-wide mx-auto mt-6" />
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          <div className="explore-grid mx-auto grid max-w-md grid-cols-2 gap-3 sm:max-w-xl sm:gap-5 md:max-w-3xl md:grid-cols-3 lg:max-w-4xl">
             {services.map((s, i) => (
-              <AnimatedSection key={s.slug} delay={(i % 3) * 90} className="h-full">
+              <AnimatedSection key={s.slug} delay={(i % 3) * 90} className="h-full min-w-0">
                 <Link
                   to={`/services/${s.slug}`}
-                  className="group relative block aspect-[4/5] overflow-hidden rounded-2xl border border-gold/15 bg-surface shadow-lg shadow-black/50 transition-all duration-500 hover:-translate-y-2 hover:border-gold/50 hover:shadow-[0_24px_55px_rgba(201,168,76,0.2)] focus-visible:outline-2 focus-visible:outline-gold"
+                  className="group relative block aspect-3/4 overflow-hidden rounded-2xl border border-gold/15 bg-surface shadow-lg shadow-black/50 transition-all duration-500 hover:-translate-y-2 hover:border-gold/50 hover:shadow-[0_24px_55px_rgba(201,168,76,0.2)] focus-visible:outline-2 focus-visible:outline-gold"
                 >
                   {/* Front: full, clearly visible image */}
                   <img
@@ -114,32 +114,32 @@ export default function Services() {
                   />
                   <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-bg/95 via-bg/50 to-transparent" />
 
-                  <div className="absolute left-5 right-5 top-5 flex items-center justify-between">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-full border border-gold/40 bg-bg/70 text-gold backdrop-blur-md">
-                      <s.icon size={20} strokeWidth={1.5} />
+                  <div className="absolute left-3 right-3 top-3 flex items-center justify-between gap-2 sm:left-4 sm:right-4 sm:top-4">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-bg/70 text-gold backdrop-blur-md sm:h-10 sm:w-10">
+                      <s.icon size={16} strokeWidth={1.5} />
                     </span>
-                    <span className="rounded-full bg-bg/70 px-3 py-1 font-cinzel text-[9px] uppercase tracking-wider text-gold-light backdrop-blur-md">
+                    <span className="truncate rounded-full bg-bg/70 px-2 py-0.5 font-cinzel text-[8px] uppercase tracking-wider text-gold-light backdrop-blur-md sm:px-2.5 sm:py-1 sm:text-[9px]">
                       {s.count}
                     </span>
                   </div>
 
-                  <div className="absolute inset-x-0 bottom-0 p-6 transition-all duration-500 group-hover:translate-y-4 group-hover:opacity-0">
-                    <h3 className="font-cormorant text-[28px] font-normal leading-tight text-text-primary">{s.name}</h3>
-                    <p className="mt-1 font-cormorant text-base italic text-gold-light/90">{s.tagline}</p>
-                    <div className="mt-3 flex items-center gap-2 font-cinzel text-[9px] uppercase tracking-[0.18em] text-gold/80">
+                  <div className="absolute inset-x-0 bottom-0 p-3 transition-all duration-500 sm:p-4 md:group-hover:translate-y-4 md:group-hover:opacity-0">
+                    <h3 className="line-clamp-2 font-cormorant text-base font-normal leading-tight text-text-primary sm:text-xl lg:text-[22px]">{s.name}</h3>
+                    <p className="mt-1 hidden font-cormorant text-sm italic text-gold-light/90 sm:line-clamp-1">{s.tagline}</p>
+                    <div className="mt-2 flex items-center gap-2 font-cinzel text-[9px] uppercase tracking-[0.18em] text-gold/80 sm:mt-3">
                       <span className="h-px w-6 bg-gold/60" /> Explore
                     </div>
                   </div>
 
                   {/* Hover: details panel slides up */}
-                  <div className="absolute inset-0 flex translate-y-full flex-col justify-end bg-gradient-to-t from-bg via-bg/95 to-bg/75 p-6 backdrop-blur-[2px] transition-transform duration-500 ease-out group-hover:translate-y-0 group-focus-visible:translate-y-0">
-                    <span className="mb-1 font-cinzel text-[10px] uppercase tracking-[0.2em] text-gold">{s.count}</span>
-                    <h3 className="font-cormorant text-[28px] leading-tight text-gold-light">{s.name}</h3>
-                    <div className="my-3 h-px w-12 bg-gold/60" />
-                    <p className="mb-4 line-clamp-3 font-dmsans text-sm leading-relaxed text-text-primary/80">{s.intro}</p>
-                    <ul className="mb-5 space-y-2">
+                  <div className="absolute inset-0 hidden translate-y-full flex-col justify-end bg-gradient-to-t from-bg via-bg/95 to-bg/75 p-4 backdrop-blur-[2px] transition-transform duration-500 ease-out group-hover:translate-y-0 group-focus-visible:translate-y-0 md:flex lg:p-5">
+                    <span className="mb-1 font-cinzel text-[9px] uppercase tracking-[0.2em] text-gold">{s.count}</span>
+                    <h3 className="font-cormorant text-xl leading-tight text-gold-light lg:text-[22px]">{s.name}</h3>
+                    <div className="my-2 h-px w-10 bg-gold/60" />
+                    <p className="mb-3 line-clamp-2 font-dmsans text-xs leading-relaxed text-text-primary/80">{s.intro}</p>
+                    <ul className="mb-3 space-y-1.5">
                       {s.offerings.map((o) => (
-                        <li key={o.title} className="flex items-center gap-2.5 font-dmsans text-[13px] text-text-primary/90">
+                        <li key={o.title} className="flex items-center gap-2 font-dmsans text-xs text-text-primary/90">
                           <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gold/20 text-gold">
                             <Check size={10} strokeWidth={2.5} />
                           </span>
@@ -147,7 +147,7 @@ export default function Services() {
                         </li>
                       ))}
                     </ul>
-                    <span className="inline-flex w-fit items-center gap-2 rounded-lg border border-gold/60 px-4 py-2 font-cinzel text-[10px] uppercase tracking-[0.16em] text-gold transition-colors group-hover:bg-gold group-hover:text-bg">
+                    <span className="inline-flex w-fit items-center gap-2 rounded-lg border border-gold/60 px-3 py-1.5 font-cinzel text-[9px] uppercase tracking-[0.16em] text-gold transition-colors group-hover:bg-gold group-hover:text-bg">
                       View Details <ArrowRight size={13} />
                     </span>
                   </div>
