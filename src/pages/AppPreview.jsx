@@ -381,8 +381,10 @@ export default function AppPreview() {
                       key={screen.key}
                       role="tab"
                       aria-selected={active}
+                      onMouseEnter={() => setActiveScreen(screen.key)}
+                      onFocus={() => setActiveScreen(screen.key)}
                       onClick={() => setActiveScreen(screen.key)}
-                      className={`group relative flex w-full items-start gap-5 overflow-hidden rounded-2xl border p-5 text-left transition-all duration-300 sm:p-6 ${
+                      className={`group relative flex w-full items-start gap-4 overflow-hidden rounded-2xl border px-5 py-3.5 text-left transition-all duration-300 sm:px-6 sm:py-4 ${
                         active
                           ? 'border-gold/50 bg-gradient-to-r from-maroon/25 to-surface shadow-[0_15px_40px_rgba(0,0,0,0.4)]'
                           : 'border-gold/10 bg-surface/50 hover:border-gold/30'
@@ -390,21 +392,21 @@ export default function AppPreview() {
                     >
                       <span className={`absolute left-0 top-0 h-full w-[3px] transition-colors ${active ? 'bg-gold' : 'bg-transparent'}`} />
                       <span
-                        className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border transition-colors ${
+                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border transition-colors ${
                           active ? 'border-gold bg-gold text-bg' : 'border-gold/25 bg-bg text-gold'
                         }`}
                       >
-                        <screen.icon size={20} strokeWidth={1.6} />
+                        <screen.icon size={18} strokeWidth={1.6} />
                       </span>
                       <span className="flex-1">
-                        <span className="mb-1 block font-cinzel text-[10px] uppercase tracking-[0.18em] text-gold/80">
+                        <span className="mb-0.5 block font-cinzel text-[10px] uppercase tracking-[0.18em] text-gold/80">
                           0{index + 1} · {screen.label}
                         </span>
-                        <span className="block font-cormorant text-2xl text-text-primary">{screen.title}</span>
+                        <span className="block font-cormorant text-xl leading-tight text-text-primary">{screen.title}</span>
                         <span
-                          className={`block font-dmsans text-sm leading-relaxed text-muted transition-all duration-300 ${
-                            active ? 'mt-2 max-h-24 opacity-100' : 'max-h-0 opacity-0'
-                          } overflow-hidden`}
+                          className={`mt-1 block font-dmsans text-sm leading-snug text-muted transition-opacity duration-300 ${
+                            active ? 'opacity-100' : 'opacity-50'
+                          }`}
                         >
                           {screen.copy}
                         </span>
@@ -466,7 +468,7 @@ export default function AppPreview() {
       <section className="angled-section relative overflow-hidden bg-bg py-16 lg:py-24">
         <div className="mandala-watermark -right-48 top-0" />
         <div className="container relative z-10 grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
-          <AnimatedSection className="lg:sticky lg:top-32 lg:self-start">
+          <AnimatedSection className="lg:self-start">
             <span className="mb-3 block font-cinzel text-[11px] uppercase tracking-[0.2em] text-gold">Future Features</span>
             <h2 className="mb-6 font-cormorant text-4xl font-light md:text-5xl">
               More Planning Tools <em className="text-gold">Are Coming</em>

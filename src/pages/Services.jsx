@@ -98,12 +98,12 @@ export default function Services() {
             <hr className="gold-rule-wide mx-auto mt-6" />
           </AnimatedSection>
 
-          <div className="explore-grid mx-auto grid max-w-md grid-cols-2 gap-3 sm:max-w-xl sm:gap-5 md:max-w-3xl md:grid-cols-3 lg:max-w-4xl">
+          <div className="explore-grid mx-auto grid w-full max-w-6xl grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:gap-6">
             {services.map((s, i) => (
               <AnimatedSection key={s.slug} delay={(i % 3) * 90} className="h-full min-w-0">
                 <Link
                   to={`/services/${s.slug}`}
-                  className="group relative block aspect-3/4 overflow-hidden rounded-2xl border border-gold/15 bg-surface shadow-lg shadow-black/50 transition-all duration-500 hover:-translate-y-2 hover:border-gold/50 hover:shadow-[0_24px_55px_rgba(201,168,76,0.2)] focus-visible:outline-2 focus-visible:outline-gold"
+                  className="group relative block aspect-3/4 overflow-hidden md:aspect-4/5 rounded-2xl border border-gold/15 bg-surface shadow-lg shadow-black/50 transition-all duration-500 hover:-translate-y-2 hover:border-gold/50 hover:shadow-[0_24px_55px_rgba(201,168,76,0.2)] focus-visible:outline-2 focus-visible:outline-gold"
                 >
                   {/* Front: full, clearly visible image */}
                   <img

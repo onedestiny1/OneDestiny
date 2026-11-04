@@ -141,6 +141,7 @@ function PhoneMockup() {
                 className="mb-1.5 h-1.5 w-2/3 rounded"
                 style={{ background: `rgba(201,168,76,${0.2 + opacity * 0.3})` }}
               />
+              
               <div className="h-1 w-1/2 rounded bg-muted/20" />
             </div>
           </div>
@@ -277,13 +278,13 @@ export default function Home() {
   </div>
 
   {/* Existing hero content */}
-  <div className="flex min-h-[72svh] items-center pb-28 pt-24 sm:min-h-[80svh] lg:min-h-screen lg:pb-32">
+  <div className="flex min-h-screen items-center pb-32 pt-24">
     <div className="container relative z-10 grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12 ">
 
       {/* Left content */}
       <div className="flex min-w-0 flex-col justify-center">
 
-        <h1 className={`mb-6 mt-6 sm:mt-10 lg:mt-18 font-cormorant text-[44px] font-light leading-[1.1] transition-all delay-300 duration-700 sm:text-[52px] md:text-[64px] lg:text-[72px] ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'}`}>
+        <h1 className={`mb-6 mt-18 font-cormorant text-[44px] font-light leading-[1.1] transition-all delay-300 duration-700 sm:text-[52px] md:text-[64px] lg:text-[72px] ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'}`}>
           Find Your <em className="text-gold">Perfect</em>
           <br />Event Vendors
         </h1>
